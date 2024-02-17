@@ -344,17 +344,7 @@
                 <div class="bee-block bee-block-5 bee-divider">
                     <div class="center bee-separator" style="border-top:1px solid #000000;width:100%;"></div>
                 </div>
-                <div class="dropdown-trigger">
-                    <h1 style="color:#000000;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:38px;font-weight:400;letter-spacing:normal;line-height:120%;text-align:left;margin-top:0;margin-bottom:0;">
-                        I'm a dropdown block 2 <span class="dropdown-icon"></span></h1>
-                </div>
-                <!-- Dropdown Content -->
-                <div class="dropdown-content" style="display: none;">
-                    <h1>I'm a dropdown content 2</h1>
-                </div>
-                <div class="bee-block bee-block-7 bee-divider">
-                    <div class="center bee-separator" style="border-top:1px solid #000000;width:100%;"></div>
-                </div>
+
                 <div class="dropdown-trigger">
                     <h1 style="color:#000000;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:38px;font-weight:400;letter-spacing:normal;line-height:120%;text-align:left;margin-top:0;margin-bottom:0;">
                         I'm a dropdown block 3 <span class="dropdown-icon"></span></h1>
@@ -363,6 +353,27 @@
                 <div class="dropdown-content" style="display: none;">
                     <h1>I'm a dropdown content 2</h1>
                 </div>
+                  <div class="bee-block bee-block-7 bee-divider">
+                    <div class="center bee-separator" style="border-top:1px solid #000000;width:100%;"></div>
+                </div>
+                <div class="dropdown-trigger">
+                    <h1 style="color:#000000;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:38px;font-weight:400;letter-spacing:normal;line-height:120%;text-align:left;margin-top:0;margin-bottom:0;">
+                        Scraping, analyzing and visualizing sentiment of 5k reviews.<span class="dropdown-icon"></span></h1>
+                </div>
+
+                <div class="dropdown-content" style="display: none;">
+                    <p>Reviews of the vehicle OBD scanner app were scraped from the Google Play Store using Python. Sentiment categories were produced by ChatGPT and categorization was done via the Google Sheets ChatGPT API. The data was formatted with the Pandas library and visualized with graphs using Plotly.</p>
+                    <p>Total reviews: 5373<br>
+Languages: 3<br>
+Sentiment categories: 9<br>
+Sentiment subcategories: 50<br>
+Feature requests: 621<br>
+Feature request types: 35</p>
+   <!-- insert seaborn and plotly Graphs Content here -->
+<a href="{% url 'scrapesheet_plotly' %}" target="_blank" style="background-color: #003bff; border: none; color: white; padding: 16px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px; width: 100%; box-sizing: border-box; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#000000'" onmouseout="this.style.backgroundColor='#003bff'">VIEW PLOTLY GRAPHS</a>
+                    <a href="{% url 'scrapesheet_seaborn' %}" target="_blank" style="background-color: #003bff; border: none; color: white; padding: 16px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px; width: 100%; box-sizing: border-box; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#000000'" onmouseout="this.style.backgroundColor='#003bff'">VIEW SEABORN GRAPHS</a>
+                </div>
+
                 <div class="bee-block bee-block-9 bee-divider">
                     <div class="center bee-separator" style="border-top:1px solid #000000;width:100%;"></div>
                 </div>
@@ -407,7 +418,7 @@
 <!--            </div>-->
         </div>
     </div>
-
+</div>
 </div>
 <script>
     // JavaScript for Dropdown Functionality
