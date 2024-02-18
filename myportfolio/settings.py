@@ -11,22 +11,23 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
+
+production_dotenv_path = Path('/home/kazena/htdocs/shared/.env')
+dotenv_path = production_dotenv_path if production_dotenv_path.exists() else Path(__file__).resolve().parent.parent / '.env'
+
+load_dotenv(dotenv_path=dotenv_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+SECRET_KEY = os.getenv('SECRET_KEY_PORTFOLIO', '')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t0e!z!br=*^t)wo!@0c-5uq#n@4j1!d(28s!^i0%dfu%1i&u(1'
+DEBUG = False
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kazena.icu', 'www.kazena.icu', '153.92.223.32', '.kazena.icu', '0.0.0.0']
 
 
 # Application definition
