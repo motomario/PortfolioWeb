@@ -8,3 +8,6 @@ def scrapesheet_plotly(request):
 
 def scrapesheet_seaborn(request):
     return render(request, 'portfolio/scrapesheet_seaborn.html')
+
+def sales_analysis(request):
+    return render(request, 'portfolio/sales_analysis.html')

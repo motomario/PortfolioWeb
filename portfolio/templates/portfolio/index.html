@@ -353,9 +353,8 @@
                 <!-- Dropdown Content -->
                 <div class="dropdown-content" style="display: none;">
                     <p>Over nearly a decade of sales I have observed emerging patterns. Curiosity led me to explore these trends in my own project. Data is based on sales from the last two years.</p>
-    <img src="{% static 'portfolio/images/sales.svg' %}" alt="Sales by Day" style="max-width:100%;height:auto;">
-    <img src="{% static 'portfolio/images/sales_by_day.svg' %}" alt="Sales by Day of Week" style="max-width:100%;height:auto;">
-    <img src="{% static 'portfolio/images/sales_by_month.svg' %}" alt="Sales by Month" style="max-width:100%;height:auto;">
+                    <a href="{% url 'sales_analysis' %}" target="_blank" style="background-color: #003bff; border: none; color: white; padding: 16px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px; width: 100%; box-sizing: border-box; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#000000'" onmouseout="this.style.backgroundColor='#003bff'">VIEW SEABORN GRAPHS</a>
+
 </div>
                   <div class="bee-block bee-block-7 bee-divider">
                     <div class="center bee-separator" style="border-top:1px solid #000000;width:100%;"></div>
