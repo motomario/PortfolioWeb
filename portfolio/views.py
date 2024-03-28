@@ -11,3 +11,6 @@ def scrapesheet_seaborn(request):
 
 def sales_analysis(request):
     return render(request, 'portfolio/sales_analysis.html')
+
+def siurblys_plots(request):
+    return render(request, 'portfolio/siurblys_plots.html')
