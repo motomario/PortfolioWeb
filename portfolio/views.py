@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from .models import EmailTracking
 import csv
+import uuid
 
 def index_view(request):
-    return render(request, 'portfolio/index.html')
+    tracking_id = request.GET.get('tracking_id', str(uuid.uuid4()))
+    return render(request, 'portfolio/index.html', {'tracking_id': tracking_id})
 
 def scrapesheet_plotly(request):
     return render(request, 'portfolio/scrapesheet_plotly.html')
@@ -36,7 +38,7 @@ def track_link_click(request, tracking_id):
     tracking_entry.click_timestamp = timezone.now()
     tracking_entry.save()
     # Redirect to the actual URL
-    return HttpResponse("You clicked the link!")
+    return HttpResponseRedirect("https://your-actual-url.com")
 
 def export_tracking_stats(request):
     # Create the HttpResponse object with the appropriate CSV header.
