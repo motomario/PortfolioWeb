@@ -1,9 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+import logging
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from .models import EmailTracking
 import csv
 import uuid
+
+logger = logging.getLogger(__name__)
 
 def index_view(request):
     tracking_id = request.GET.get('tracking_id', str(uuid.uuid4()))
@@ -22,26 +25,27 @@ def siurblys_plots(request):
     return render(request, 'portfolio/siurblys_plots.html')
 
 def tracking_pixel(request, tracking_id):
-    # Log the request in the database
+    logger.debug(f"Image requested for ID: {tracking_id}")
     tracking_entry = get_object_or_404(EmailTracking, tracking_id=tracking_id)
     tracking_entry.opened += 1
     tracking_entry.open_timestamp = timezone.now()
     tracking_entry.save()
+    logger.debug(f"Updated tracking entry: {tracking_entry.email}, opened: {tracking_entry.opened}")
 
-    # Serve the tracking pixel image
     with open('portfolio/static/portfolio/images/px.png', 'rb') as f:
         return HttpResponse(f.read(), content_type="image/png")
 
 def track_link_click(request, tracking_id):
+    logger.debug(f"Link clicked for ID: {tracking_id}")
     tracking_entry = get_object_or_404(EmailTracking, tracking_id=tracking_id)
     tracking_entry.clicked += 1
     tracking_entry.click_timestamp = timezone.now()
     tracking_entry.save()
-    # Redirect to the actual URL
-    return HttpResponseRedirect("https://your-actual-url.com")
+    logger.debug(f"Updated tracking entry: {tracking_entry.email}, clicked: {tracking_entry.clicked}")
+
+    return redirect('https://oocco.co.uk/')
 
 def export_tracking_stats(request):
-    # Create the HttpResponse object with the appropriate CSV header.
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="email_tracking_stats.csv"'
 
